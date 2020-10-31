@@ -18,4 +18,4 @@ Simple counter with react-redux.
 2.1. reducer가 여러개라면 modules/index.js 만들고 rootReducer = combineReducers({counter, todo,})  
 2.2. index.js에 createStore(rootReducer)
 
-### Thank you
+### Thank you 😄
