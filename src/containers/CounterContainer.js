@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { decrease, increase, init, setDiff } from "../modules/counter"
 
 function CounterContainer() {
-  const { number } = useSelector((state) => ({ number: state.counter.number }))
+  const { number } = useSelector((state) => ({ number: state.counter.number })) //rootReducer.counter.number
   const { diff } = useSelector((state) => ({ diff: state.counter.diff }))
 
   const dispatch = useDispatch()
