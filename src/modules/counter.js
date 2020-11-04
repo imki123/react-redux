@@ -49,10 +49,7 @@ const initialState = {
 export default function counter(state = initialState, action) {
   switch (action.type) {
     case INIT:
-      return {
-        number: 0,
-        diff: 1,
-      }
+      return initialState
     case SET_DIFF:
       return {
         ...state,
