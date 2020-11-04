@@ -6,9 +6,9 @@ import rootReducer from "./modules/index"
 import { Provider } from "react-redux"
 import { composeWithDevTools } from "redux-devtools-extension" // 리덕스 개발자 도구
 import logger from 'redux-logger'
-import thunk from 'redux-thunk'
+import ReduxThunk from 'redux-thunk'
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk, logger))) // 스토어를 만듭니다.
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(ReduxThunk, logger))) // 스토어를 만듭니다.
 
 ReactDOM.render(
   <React.StrictMode>

@@ -13,6 +13,14 @@ export const setDiff = (diff) => ({
 export const increase = () => ({ type: INCREASE })
 export const decrease = () => ({ type: DECREASE })
 
+//1초 후에 디스패치하는 thunk 함수
+export const increaseAsync = () => (dispatch) => {
+  setTimeout(() => dispatch(increase()), 1000)
+}
+export const decreaseAsync = () => (dispatch) => {
+  setTimeout(() => dispatch(decrease()), 1000)
+}
+
 /* 초기상태 */
 const initialState = {
   number: 0,
