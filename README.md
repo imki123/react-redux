@@ -1,5 +1,6 @@
 # react-redux
 Simple counter with react-redux.  
+https://imki123.github.io/react-redux   
 
 ### How to run
 1. ```npm i```
