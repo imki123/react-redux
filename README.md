@@ -20,11 +20,11 @@ https://imki123.github.io/react-redux
 
 ### How to use redux-thunk
 1. npm i redux-thunk
-2. thunk는 주로 비동기 디스패치가 필요할 때 사용한다.
-3. index.js에 applyMiddleware(ReduxThunk)를 적용한다.
+2. thunk는 주로 비동기 디스패치가 필요할 때 사용한다.  
+3. index.js에 applyMiddleware(ReduxThunk)를 적용한다.  
 3.1. const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(ReduxThunk, logger))) // 디버깅 툴을 사용하고, 리덕스썽크, 로거 미들웨어를 적용했다.  
-4. modules/counter.js에 setTimeout()을 이용한 간단한 thunk함수를 만든다.
-4.1. thunk함수는 export const increaseAsync = () => (dispatch, getState) => { ... } 구조이다. { ... }에 비동기 작업을 넣어주면 된다.
-5. Promise 작업을 위해서는 시작 액션 CHECK_NUMBER, 성공 액션 CHECK_NUMBER_SUCCESS, 실패 액션 CHECK_NUMBER_ERROR를 만들어 리듀서에 구현한다.
+4. modules/counter.js에 setTimeout()을 이용한 간단한 thunk함수를 만든다.  
+4.1. thunk함수는 export const increaseAsync = () => (dispatch, getState) => { ... } 구조이다. { ... }에 비동기 작업을 넣어주면 된다.  
+5. Promise 작업을 위해서는 시작 액션 CHECK_NUMBER, 성공 액션 CHECK_NUMBER_SUCCESS, 실패 액션 CHECK_NUMBER_ERROR를 만들어 리듀서에 구현한다.  
 
 ### Thank you 😄
