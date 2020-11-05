@@ -24,13 +24,13 @@ function CounterContainer() {
       <div>
         diff : <input onChange={onSetDiff} value={diff}></input>
       </div>
-      <div>
-        Number is more than 3 : {checkResult ? 'true' : 'false'}
-      </div>
       <button onClick={onIncrease}>+</button>&nbsp;
       <button onClick={onDecrease}>-</button>&nbsp;
       <button onClick={onCheck}>숫자 체크</button>&nbsp;
       <button onClick={onInit}>초기화</button>
+      <div>
+        Number is more than 3 : <b>{checkResult ? 'true' : 'false'}</b>
+      </div>
     </div>
   )
 }
