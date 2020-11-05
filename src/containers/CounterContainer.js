@@ -1,6 +1,6 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { checkNumberAsync, decrease, decreaseAsync, increase, increaseAsync, init, setDiff } from "../modules/counter"
+import { checkNumberAsync, decreaseAsync, increaseAsync, init, setDiff } from "../modules/counter"
 
 function CounterContainer() {
   const { number } = useSelector((state) => ({ number: state.counter.number })) //rootReducer.counter.number
@@ -8,8 +8,8 @@ function CounterContainer() {
   const { checkResult } = useSelector((state) => ({ checkResult: state.counter.checkResult }))
 
   const dispatch = useDispatch()
-  /* const onIncrease = () => dispatch(increase())
-  const onDecrease = () => dispatch(decrease()) */
+  // const onIncrease = () => dispatch(increase())
+  // const onDecrease = () => dispatch(decrease())
   const onIncrease = () => dispatch(increaseAsync())
   const onDecrease = () => dispatch(decreaseAsync())
   const onCheck = () => dispatch(checkNumberAsync())
