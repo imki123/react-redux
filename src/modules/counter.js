@@ -47,15 +47,16 @@ export const checkNumberThunk = () => async (dispatch, getState) => {
 //1초 후에 디스패치하는 사가 제너레이터
 function* increaseSaga(){
   yield delay(1000) //1초 딜레이
-  yield put(increase()) //리듀서에 increase 액션 디스패치(실행)
+  yield put(increase()) //리듀서에 increase 액션 put(디스패치)(실행)
 }
 function* decreaseSaga(){
   yield delay(1000) //1초 딜레이
-  yield put(decrease()) //리듀서에 increase 액션 디스패치(실행)
+  yield put(decrease()) //리듀서에 increase 액션 put(디스패치)(실행)
 }
 
 //사가 제너레이터를 감시하는 watchSaga
 export function* watchSaga(){
+  //takeEvery(액션타입, 사가)
   yield takeEvery(INCREASE_ASYNC, increaseSaga) //INCREASE_ASYNC액션이 발생하면 increaseSaga 실행
   yield takeLatest(DECREASE_ASYNC, decreaseSaga) //DECREASE_ASYNC액션 처리 중 마지막 액션만 처리함.
 }
