@@ -1,6 +1,11 @@
 .counter {
-  & .number {
+  .number {
     font-weight: bold;
     color: blue;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  div + div{
+    margin-bottom: 10px;
   }
 }

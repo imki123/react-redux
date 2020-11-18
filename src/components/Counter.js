@@ -24,7 +24,8 @@ function Counter(props) {
       <div>
         <span> use Thunk : </span>
         <button onClick={onIncreaseThunk}>+ (Thunk)</button>&nbsp;
-        <button onClick={onDecreaseThunk}>- (Thunk)</button>&nbsp;
+        <button onClick={onDecreaseThunk}>- (Thunk)</button>&nbsp;<br/>
+        <button onClick={onCheck}>Number가 3 이상인가?</button> <b>{checkResult ? "True" : "False"}</b>
       </div>
       <div>
         <span> use Saga : </span>
@@ -32,8 +33,7 @@ function Counter(props) {
         <button onClick={onDecreaseSaga}>- (Saga)</button>&nbsp;
       </div>
       <div>
-        Number is more than 3 : <b>{checkResult ? "true" : "false"}</b>&nbsp;
-        <button onClick={onCheck}>숫자 체크</button>
+        
       </div>
       <button onClick={onInit}>초기화</button>
     </div>
