@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css","webpack://src/components/Counter.scss"],"names":[],"mappings":"AAAA,KACE,iBACF,CCDE,iBACE,eAAA,CACA,UAAA","file":"main.059c1143.chunk.css","sourcesContent":[".App {\n  text-align: center;\n}\n\n",".counter {\r\n  & .number {\r\n    font-weight: bold;\r\n    color: blue;\r\n  }\r\n}\r\n"]}
