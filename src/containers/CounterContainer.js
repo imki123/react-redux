@@ -4,7 +4,9 @@ import Counter from "../components/Counter"
 import {
   checkNumberThunk,
   decreaseAsync,
+  decreaseThunk,
   increaseAsync,
+  increaseThunk,
   init,
   setDiff,
 } from "../modules/counter"
@@ -17,10 +19,10 @@ function CounterContainer() {
   }))
 
   const dispatch = useDispatch()
-  // const onIncrease = () => dispatch(increase())
-  // const onDecrease = () => dispatch(decrease())
-  const onIncrease = () => dispatch(increaseAsync())
-  const onDecrease = () => dispatch(decreaseAsync())
+  const onIncreaseThunk = () => dispatch(increaseThunk())
+  const onDecreaseThunk = () => dispatch(decreaseThunk())
+  const onIncreaseSaga = () => dispatch(increaseAsync())
+  const onDecreaseSaga = () => dispatch(decreaseAsync())
   const onCheck = () => dispatch(checkNumberThunk())
   const onSetDiff = (e) => dispatch(setDiff(e.target.value))
   const onInit = () => dispatch(init())
@@ -30,8 +32,10 @@ function CounterContainer() {
       number={number}
       onSetDiff={onSetDiff}
       diff={diff}
-      onIncrease={onIncrease}
-      onDecrease={onDecrease}
+      onIncreaseThunk={onIncreaseThunk}
+      onDecreaseThunk={onDecreaseThunk}
+      onIncreaseSaga={onIncreaseSaga}
+      onDecreaseSaga={onDecreaseSaga}
       onCheck={onCheck}
       onInit={onInit}
       checkResult={checkResult}

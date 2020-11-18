@@ -1,0 +1,6 @@
+.counter {
+  & .number {
+    font-weight: bold;
+    color: blue;
+  }
+}
