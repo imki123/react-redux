@@ -1,10 +1,13 @@
 import {checkNumber} from "../apis/checkNumber"
+import {delay, put, takeEvery, takeLatest} from "redux-saga/effects"
 
 /* 액션 타입 */
 const INIT = "counter/INIT"
 const SET_DIFF = "counter/SET_DIFF"
 const INCREASE = "counter/INCREASE"
 const DECREASE = "counter/DECREASE"
+const INCREASE_ASYNC = "counter/INCREASE_ASYNC"
+const DECREASE_ASYNC = "counter/DECREASE_ASYNC"
 
 /* 숫자체크하기 프라미스 */
 const CHECK_NUMBER = "counter/CHECK_NUMBER"
@@ -19,15 +22,17 @@ export const setDiff = (diff) => ({
 })
 export const increase = () => ({ type: INCREASE })
 export const decrease = () => ({ type: DECREASE })
+export const increaseAsync = () => ({ type: INCREASE_ASYNC })
+export const decreaseAsync = () => ({ type: DECREASE_ASYNC })
 
 //1초 후에 디스패치하는 thunk 함수
-export const increaseAsync = () => (dispatch) => {
+export const increaseThunk = () => (dispatch) => {
   setTimeout(() => dispatch(increase()), 1000)
 }
-export const decreaseAsync = () => (dispatch) => {
+export const decreaseThunk = () => (dispatch) => {
   setTimeout(() => dispatch(decrease()), 1000)
 }
-export const checkNumberAsync = () => async (dispatch, getState) => {
+export const checkNumberThunk = () => async (dispatch, getState) => {
   dispatch({ type: CHECK_NUMBER })
   try {
     console.log(getState())
@@ -37,6 +42,26 @@ export const checkNumberAsync = () => async (dispatch, getState) => {
     dispatch({ type: CHECK_NUMBER_ERROR, error })
   }
 }
+
+
+//1초 후에 디스패치하는 사가 제너레이터
+function* increaseSaga(){
+  yield delay(1000) //1초 딜레이
+  yield put(increase()) //리듀서에 increase 액션 디스패치(실행)
+}
+function* decreaseSaga(){
+  yield delay(1000) //1초 딜레이
+  yield put(decrease()) //리듀서에 increase 액션 디스패치(실행)
+}
+
+//사가 제너레이터를 감시하는 watchSaga
+export function* watchSaga(){
+  yield takeEvery(INCREASE_ASYNC, increaseSaga) //INCREASE_ASYNC액션이 발생하면 increaseSaga 실행
+  yield takeLatest(DECREASE_ASYNC, decreaseSaga) //DECREASE_ASYNC액션 처리 중 마지막 액션만 처리함.
+}
+
+
+
 
 /* 초기상태 */
 const initialState = {
